@@ -1,6 +1,6 @@
 name: Build NorthOS
 on:
-  workflow_dispatch: # Запуск вручную из вкладки Actions
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       - name: Init and Sync
         run: |
           mkdir -p ~/android/north && cd ~/android/north
-          repo init -u https://github.com/твой_ник/NorthOS-Project -b main -m manifest/default.xml
+          repo init -u https://github.com/cfmz/NorthOS-Project -b main -m manifest/default.xml
           repo sync -c -j4 --force-sync --no-clone-bundle --no-tags
 
       - name: Build
