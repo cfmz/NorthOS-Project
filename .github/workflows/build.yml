@@ -40,7 +40,8 @@ jobs:
           LineageOS/android_device_xiaomi_lancelot lineage-20
           LineageOS/android_device_xiaomi_mt6768-common lineage-20
           LineageOS/android_kernel_xiaomi_mt6768 lineage-20
-          TheMuppets/proprietary_vendor_xiaomi lineage-20
+          TheMuppets/proprietary_vendor_xiaomi_lancelot lineage-20
+          TheMuppets/proprietary_vendor_xiaomi_mt6768-common lineage-20
           cfmz/NorthOS-Project main
           EOF
           exit $fail

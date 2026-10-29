@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote name="gh" fetch="https://github.com" />
-  <project name="LineageOS/android_device_xiaomi_lancelot" path="device/xiaomi/lancelot" remote="gh" revision="lineage-20" />
-  <project name="LineageOS/android_device_xiaomi_mt6768-common" path="device/xiaomi/mt6768-common" remote="gh" revision="lineage-20" />
-  <project name="LineageOS/android_kernel_xiaomi_mt6768" path="kernel/xiaomi/mt6768" remote="gh" revision="lineage-20" />
-  <project name="TheMuppets/proprietary_vendor_xiaomi" path="vendor/xiaomi" remote="gh" revision="lineage-20" />
-  <project name="cfmz/NorthOS-Project" path="vendor/north" remote="gh" revision="main" />
+
+  <project name="LineageOS/android_device_xiaomi_lancelot"
+           path="device/xiaomi/lancelot"
+           remote="gh" revision="lineage-20" />
+
+  <project name="LineageOS/android_device_xiaomi_mt6768-common"
+           path="device/xiaomi/mt6768-common"
+           remote="gh" revision="lineage-20" />
+
+  <project name="LineageOS/android_kernel_xiaomi_mt6768"
+           path="kernel/xiaomi/mt6768"
+           remote="gh" revision="lineage-20" />
+
+  <project name="TheMuppets/proprietary_vendor_xiaomi_lancelot"
+           path="vendor/xiaomi/lancelot"
+           remote="gh" revision="lineage-20" clone-depth="1" />
+  <project name="TheMuppets/proprietary_vendor_xiaomi_mt6768-common"
+           path="vendor/xiaomi/mt6768-common"
+           remote="gh" revision="lineage-20" clone-depth="1" />
+
+  <project name="cfmz/NorthOS-Project"
+           path="vendor/north"
+           remote="gh" revision="main" />
 </manifest>
