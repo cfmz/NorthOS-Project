@@ -15,9 +15,9 @@ jobs:
       - name: Free disk space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 4096
-          temp-reserve-mb: 1024
-          swap-size-mb: 8192
+          root-reserve-mb: 2048
+          temp-reserve-mb: 512
+          swap-size-mb: 4096
           remove-dotnet: "true"
           remove-android: "true"
           remove-haskell: "true"
@@ -43,7 +43,8 @@ jobs:
         run: |
           mkdir -p "$GITHUB_WORKSPACE/lineage"
           cd "$GITHUB_WORKSPACE/lineage"
-          repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 --depth=1 --no-clone-bundle
+          # --depth=1 и --partial-clone для экономии места
+          repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 --depth=1 --partial-clone --clone-filter=blob:limit=10m --no-clone-bundle
 
       - name: Add local manifest
         run: |
