@@ -3,13 +3,13 @@
   <remote name="github" fetch="https://github.com/" />
   <remote name="north" fetch="https://github.com/cfmz/" />
 
-  <default revision="lineage-20" remote="github" sync-j="4" />
+  <default revision="lineage-20.0" remote="github" sync-j="4" />
 
-  <!-- Device tree (ветка lineage-20, а не 20.0) -->
+  <!-- Device tree -->
   <project name="LineageOS/android_device_xiaomi_lancelot" path="device/xiaomi/lancelot" remote="github" revision="lineage-20" clone-depth="1" />
 
-  <!-- Проприетарные блобы из общего репозитория TheMuppets -->
-  <project name="TheMuppets/proprietary_vendor_xiaomi" path="vendor/xiaomi/lancelot" remote="github" revision="lineage-20" clone-depth="1" />
+  <!-- Проприетарные блобы (исправлена ветка на lineage-20.0) -->
+  <project name="TheMuppets/proprietary_vendor_xiaomi" path="vendor/xiaomi/lancelot" remote="github" revision="lineage-20.0" clone-depth="1" />
 
   <!-- Наш репозиторий брендинга -->
   <project name="NorthOS-Project" path="vendor/north" remote="north" revision="main" />
