@@ -5,9 +5,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    timeout-minutes: 360
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Free Disk Space (Освобождаем место)
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+          df -h
 
       - name: Setup repo
         run: |
@@ -19,9 +28,7 @@ jobs:
       - name: Init and Sync
         run: |
           mkdir -p ~/android/north && cd ~/android/north
-          # Инициализируем базу LineageOS 20
           repo init -u https://github.com/LineageOS/android.git -b lineage-20
-          # Подкидываем наш манифест для устройства
           mkdir -p .repo/local_manifests
           cp $GITHUB_WORKSPACE/manifest/default.xml .repo/local_manifests/north.xml
           repo sync -c -j4 --force-sync --no-clone-bundle --no-tags
@@ -29,6 +36,11 @@ jobs:
       - name: Build
         run: |
           cd ~/android/north
+          # Проверка, что движок скачался
+          if [ ! -f build/envsetup.sh ]; then
+            echo "ОШИБКА: build/envsetup.sh не найден! repo sync не скачал базу."
+            exit 1
+          fi
           source build/envsetup.sh
           lunch north_lancelot-userdebug
           make -j4 otapackage
