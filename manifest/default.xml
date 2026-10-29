@@ -3,7 +3,6 @@
   <remote name="github" fetch="https://github.com/" />
   <remote name="north" fetch="https://github.com/cfmz/" />
 
-  <!-- Правильная ветка lineage-20 (без .0) -->
   <default revision="lineage-20" remote="github" sync-j="4" />
 
   <!-- Дерево устройства -->
@@ -11,9 +10,6 @@
 
   <!-- Общее дерево для MT6768 -->
   <project name="LineageOS/android_device_xiaomi_mt6768-common" path="device/xiaomi/mt6768-common" remote="github" revision="lineage-20" clone-depth="1" />
-
-  <!-- Проприетарные драйверы -->
-  <project name="TheMuppets/proprietary_vendor_xiaomi" path="vendor/xiaomi" remote="github" revision="lineage-20" clone-depth="1" />
 
   <!-- Ядро -->
   <project name="LineageOS/android_kernel_xiaomi_mt6768" path="kernel/xiaomi/mt6768" remote="github" revision="lineage-20" clone-depth="1" />
