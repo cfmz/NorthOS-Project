@@ -3,15 +3,11 @@
   <remote name="github" fetch="https://github.com/" />
   <remote name="north" fetch="https://github.com/cfmz/" />
 
-  <!-- Указываем корректную ветку lineage-20 без точки -->
-  <default revision="lineage-20" remote="github" sync-j="4" />
+  <default revision="lineage-20.0" remote="github" sync-j="4" />
 
-  <!-- Официальный device tree для lancelot -->
-  <project name="LineageOS/android_device_xiaomi_lancelot" path="device/xiaomi/lancelot" remote="github" revision="lineage-20" clone-depth="1" />
-
-  <!-- Проприетарные блобы: правильная ветка lineage-20 вместо отсутствовавшей lineage-20.0 -->
-  <project name="TheMuppets/proprietary_vendor_xiaomi" path="vendor/xiaomi/lancelot" remote="github" revision="lineage-20" clone-depth="1" />
-
-  <!-- Наш репозиторий NorthOS -->
+  <project name="LineageOS/android_device_xiaomi_lancelot" path="device/xiaomi/lancelot" remote="github" revision="lineage-20.0" clone-depth="1" />
+  <project name="LineageOS/android_device_xiaomi_mt6768-common" path="device/xiaomi/mt6768-common" remote="github" revision="lineage-20.0" clone-depth="1" />
+  <project name="TheMuppets/proprietary_vendor_xiaomi" path="vendor/xiaomi" remote="github" revision="lineage-20.0" clone-depth="1" />
+  <project name="LineageOS/android_kernel_xiaomi_mt6768" path="kernel/xiaomi/mt6768" remote="github" revision="lineage-20.0" clone-depth="1" />
   <project name="NorthOS-Project" path="vendor/north" remote="north" revision="main" />
 </manifest>
