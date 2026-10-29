@@ -19,7 +19,11 @@ jobs:
       - name: Init and Sync
         run: |
           mkdir -p ~/android/north && cd ~/android/north
-          repo init -u https://github.com/cfmz/NorthOS-Project -b main -m manifest/default.xml
+          # Инициализируем базу LineageOS 20
+          repo init -u https://github.com/LineageOS/android.git -b lineage-20
+          # Подкидываем наш манифест для устройства
+          mkdir -p .repo/local_manifests
+          cp $GITHUB_WORKSPACE/manifest/default.xml .repo/local_manifests/north.xml
           repo sync -c -j4 --force-sync --no-clone-bundle --no-tags
 
       - name: Build
