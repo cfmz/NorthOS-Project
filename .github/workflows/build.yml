@@ -1,0 +1,36 @@
+name: Build NorthOS
+on:
+  workflow_dispatch: # Запуск вручную из вкладки Actions
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup repo
+        run: |
+          mkdir -p ~/bin
+          curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+          chmod a+x ~/bin/repo
+          echo "$HOME/bin" >> $GITHUB_PATH
+
+      - name: Init and Sync
+        run: |
+          mkdir -p ~/android/north && cd ~/android/north
+          repo init -u https://github.com/твой_ник/NorthOS-Project -b main -m manifest/default.xml
+          repo sync -c -j4 --force-sync --no-clone-bundle --no-tags
+
+      - name: Build
+        run: |
+          cd ~/android/north
+          source build/envsetup.sh
+          lunch north_lancelot-userdebug
+          make -j4 otapackage
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: NorthOS-ota
+          path: ~/android/north/out/target/product/lancelot/*.zip
